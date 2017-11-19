@@ -101,10 +101,10 @@ class Grid extends React.Component{
         let cellsTemp = this.state.cells;
 
         if(propsList.get(index)[2] === 0){
-            propsList = propsList.set(index , [propsList.get(index)[0], propsList.get(index)[1], 1, index]);
+            propsList = propsList.set(index , [propsList.get(index)[0], propsList.get(index)[1], 1, index, propsList.get(index)[4], propsList.get(index)[5]]);
         }
         else{
-            propsList = propsList.set(index , [propsList.get(index)[0], propsList.get(index)[1], 0, index]);
+            propsList = propsList.set(index , [propsList.get(index)[0], propsList.get(index)[1], 0, index, propsList.get(index)[4], propsList.get(index)[5]]);
         }
         
         cellsTemp = cellsTemp.set(index, <Cell props={propsList.get(index)} key={"cell" + index} onClick={this.killOrBirth.bind(this, index)}/>);
