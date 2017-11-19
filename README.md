@@ -1,0 +1,1 @@
+This implementation of the game of life and similar rules was made to learn react!

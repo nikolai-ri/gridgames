@@ -1,0 +1,59 @@
+.component, .component1, .component0 {
+  position: absolute;
+  display: inline-block;
+  width: 9px;
+  height: 9px; }
+
+.component1 {
+  background-color: blue; }
+
+.component0 {
+  background-color: lightgrey; }
+
+.root {
+  width: 500px;
+  height: 500px; }
+
+.gridWrapper, .gridWrapper5030, .gameWrapper5030, .gridWrapper8050, .gameWrapper8050, .gridWrapper10080, .gameWrapper10080 {
+  position: relative;
+  border: 2px solid black;
+  padding: 0px; }
+
+.gridWrapper5030, .gameWrapper5030 {
+  height: 303px;
+  width: 503px; }
+
+.gridWrapper8050, .gameWrapper8050 {
+  height: 503px;
+  width: 803px; }
+
+.gridWrapper10080, .gameWrapper10080 {
+  height: 803px;
+  width: 1003px; }
+
+.gameWrapper5030 {
+  border: 0px;
+  height: 503px; }
+
+.gameWrapper8050 {
+  border: 0px;
+  height: 703px; }
+
+.gameWrapper10080 {
+  border: 0px;
+  height: 1003px; }
+
+.topButtonContainer > .col-5 > p {
+  margin: 0px;
+  padding-left: 5px;
+  font-size: 10pt; }
+
+.topButtonContainer {
+  padding: 0px;
+  margin: 0px; }
+
+.topButtonContainer > .d-flex {
+  padding: 0px;
+  margin: 0px; }
+
+/*# sourceMappingURL=index.css.map */
