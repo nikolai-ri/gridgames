@@ -36,17 +36,18 @@ class Grid extends React.Component{
             cellSize : 10,  // the size of a cell in px. The size of the box inside (!) the cell can be set using css. The inside of the cell should not be set larger than this value...
             gameWrapper : "5030",  // this variable is used for the class of the wrapper element. Just for styling purposes.
             generations : 50 //number of generations in the first run
-        }, () => this.setFieldSize(this.state.cellsX, this.state.cellsY));
+        }, () => this.setFieldSize(this.state.cellsX, this.state.cellsY, this.state.cellSize));
     }
 
     /* Sets up the field. This extra function is needed, so it can also be called after the first mounting, when changing the field size. */
 
-    setFieldSize(fieldX, fieldY){
+    setFieldSize(fieldX, fieldY, cellSize){
         this.setState({
             cellsX : fieldX,
             cellsY : fieldY,
             gridWrapperClass : "gridWrapper" + fieldX + fieldY,
             gameWrapper : "" + fieldX + fieldY,
+            cellSize : cellSize,
             gameBreakout : true,
             currentgeneration : 0
         }, () => this.loadField(fieldX, fieldY));
@@ -460,27 +461,25 @@ class Grid extends React.Component{
 
     render(){
         return (
-            <div className={"gameWrapper" + this.state.gameWrapper + " container d-flex flex-column justify-content-center align-content-center"}>
-                <div className="row container-fluid topButtonContainer">
-                    <div className="d-flex justify-content-beginning col-7">
+            <div className={"gameWrapper" + this.state.gameWrapper + " container d-flex flex-column justify-content-center align-items-center"}>
+                <div className="topButtonContainer">
+                    <div className="d-flex justify-content-beginning">
                         <button type="text" onClick={this.createRandomField.bind(this)}>Random field</button>
-                        <button type="text" onClick={this.setFieldSize.bind(this, this.state.cellsX, this.state.cellsY)}>Reset / Stop</button>
+                        <button type="text" onClick={this.setFieldSize.bind(this, this.state.cellsX, this.state.cellsY, this.state.cellSize)}>Reset / Stop</button>
                         <button type="text" onClick={this.gameOfLifeWrapperFunction.bind(this, this.state.generations, 0)}>Start</button>
-                    </div>
-                    <div className="d-flex justify-content-center align-content-center col-5">
                         <form className="d-flex align-content-center">
                             <input type="number" min="0" max="1000" ref="generationsInput" onChange={this.handleChangeGenerationsInput.bind(this)}/>
                         </form>
-                        <p> Generations : {this.state.currentgeneration}</p>
+                        <p className='d-flex align-items-center'> Generations : {this.state.currentgeneration}</p>
                     </div>
                 </div>
-                <div className="row d-flex justify-content-center">
+                <div className={"d-flex justify-content-center " + this.state.gridWrapperClass}>
                     <div className={this.state.gridWrapperClass}>{this.state.cells}</div>
                 </div>
                 <div className="row d-flex justify-content-center">
-                    <button type="text" onClick={this.setFieldSize.bind(this, 50, 30)}>Set 50 x 30</button>
-                    <button type="text" onClick={this.setFieldSize.bind(this, 80, 50)}>Set 80 x 50</button>
-                    <button type="text" onClick={this.setFieldSize.bind(this, 100, 80)}>Set 100 x 80</button>
+                    <button type="text" onClick={this.setFieldSize.bind(this, 50, 30, 10)}>Set 50 x 30</button>
+                    <button type="text" onClick={this.setFieldSize.bind(this, 80, 50, 7)}>Set 80 x 50</button>
+                    <button type="text" onClick={this.setFieldSize.bind(this, 100, 80, 5)}>Set 100 x 80</button>
                 </div>
             </div>
         );

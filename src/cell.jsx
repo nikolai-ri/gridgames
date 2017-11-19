@@ -25,7 +25,7 @@ export default class Cell extends React.Component{
 
     render(){
             return (
-                <div className={"component" + this.state.properties.props[2]} style={{top : this.state.properties.props[0] + "px", left : this.state.properties.props[1] + "px"}} onClick={this.state.properties.onClick}></div>
+                <div className={"component" + this.state.properties.props[2] + this.state.properties.props[4] + this.state.properties.props[5]} style={{top : this.state.properties.props[0] + "px", left : this.state.properties.props[1] + "px"}} onClick={this.state.properties.onClick}></div>
             );
     };
               
