@@ -33,7 +33,7 @@ class Grid extends React.Component{
         this.setState({
             cellsX : 50,  // cells in X direction. The grid will be scaled accordingly.
             cellsY : 30,  // cells in Y direction. The grid will be scaled accordingly.
-            cellSize : 10,  // the size of a cell in px. The size of the box inside (!) the cell can be set using css. The inside of the cell should not be set larger than this value...
+            cellSize : 2 * window.innerHeight / 100,  // the size of a cell in px. The size of the box inside (!) the cell can be set using css. The inside of the cell should not be set larger than this value...
             gameWrapper : "5030",  // this variable is used for the class of the wrapper element. Just for styling purposes.
             generations : 50 //number of generations in the first run
         }, () => this.setFieldSize(this.state.cellsX, this.state.cellsY, this.state.cellSize));
@@ -477,9 +477,9 @@ class Grid extends React.Component{
                     <div className={this.state.gridWrapperClass}>{this.state.cells}</div>
                 </div>
                 <div className="row d-flex justify-content-center">
-                    <button type="text" onClick={this.setFieldSize.bind(this, 50, 30, 10)}>Set 50 x 30</button>
-                    <button type="text" onClick={this.setFieldSize.bind(this, 80, 50, 7)}>Set 80 x 50</button>
-                    <button type="text" onClick={this.setFieldSize.bind(this, 100, 80, 5)}>Set 100 x 80</button>
+                    <button type="text" onClick={this.setFieldSize.bind(this, 50, 30, 2 * window.innerHeight / 100)}>Set 50 x 30</button>
+                    <button type="text" onClick={this.setFieldSize.bind(this, 80, 50, 1.5 * window.innerHeight / 100)}>Set 80 x 50</button>
+                    <button type="text" onClick={this.setFieldSize.bind(this, 100, 80, 1 * window.innerHeight / 100)}>Set 100 x 80</button>
                 </div>
             </div>
         );
